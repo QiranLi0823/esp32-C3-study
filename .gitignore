@@ -1,0 +1,84 @@
+# ============================================================
+# ESP32-C3-study 仓库根目录 .gitignore
+# 覆盖所有子工程（每个子工程内也各自有一份 .gitignore）
+# ============================================================
+
+# ---------- 构建输出（重点：忽略所有 build 文件夹）----------
+build/
+**/build/
+
+# 编译中间产物 / 库文件
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.out
+*.exe
+*.d
+*.gcda
+*.gcno
+*.gcov
+
+# ---------- ESP-IDF 产物 ----------
+*.bin
+*.elf
+*.map
+flasher_args.json # 由 build 目录生成
+sdkconfig.old
+sdkconfig
+
+# ---------- ESP-IDF 依赖管理 ----------
+# 旧版本 / 手动组件管理
+/components/.idf/
+**/components/.idf/
+# 组件管理器（managed_components/ 与 dependencies.lock 由 idf.py 自动生成）
+managed_components/
+dependencies.lock
+# 本地安装的 ESP-IDF 工具
+.espressif/
+
+# ---------- CMake 生成文件 ----------
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+
+# ---------- Python 环境 / 缓存 ----------
+*.pyc
+*.pyo
+__pycache__/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---------- 编辑器 / 语言服务器 ----------
+.vscode/settings.json
+.clangd/
+.ccls-cache/
+compile_commands.json
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# ---------- macOS ----------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ---------- Windows ----------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---------- 主机端单元测试产物 ----------
+/tools/test_decode
